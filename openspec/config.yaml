@@ -1,0 +1,7 @@
+schema: spec-driven
+
+context: |
+  This is an Unreal Engine 5.6 C++ project named FGOAutoChess.
+  Runtime code lives in Source/FGOAutoChess; project assets and settings live in Content and Config.
+  Keep changes aligned with Unreal Engine conventions and avoid editing generated directories such as Binaries, Intermediate, Saved, and DerivedDataCache.
+
