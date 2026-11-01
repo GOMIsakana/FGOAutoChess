@@ -16,7 +16,7 @@ See proposal.md - Why. The runtime module already depends on GameplayAbilities a
 
 ## Decisions
 
-- Implement `UChessAttributeSet` as a `UAttributeSet` subclass, with its public declaration in `Public/AbilitySystem/UChessAttributeSet.h` and module implementation in `Private/AbilitySystem/UChessAttributeSet.cpp`. This follows the existing `UACAbilitySystemComponent` folder split; placing the new class in the private folder would prevent other runtime code from including it.
+- Implement `UChessAttributeSet` as a `UAttributeSet` subclass, with its public declaration in `Public/AbilitySystem/ChessAttributeSet.h` and module implementation in `Private/AbilitySystem/ChessAttributeSet.cpp`. This follows the existing `UACAbilitySystemComponent` folder split; placing the new class in the private folder would prevent other runtime code from including it.
 - Store each value as `FGameplayAttributeData` and expose standard GAS accessors using the project's existing module export macro. This follows GAS attribute conventions and supports gameplay effects and attribute captures. Plain numeric fields would not provide the expected GAS attribute interface.
 - Replicate the five attribute properties with the standard GAS attribute replication pattern so server-authored combat values can be observed by clients. No replication condition or gameplay rule beyond normal attribute replication is introduced.
 - Keep the attribute set as a standalone type. Automatically creating or initializing it on the chess character would couple this addition to ownership and lifecycle decisions that are not required for declaring the attributes.

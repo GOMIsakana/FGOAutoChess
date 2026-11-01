@@ -1,8 +1,33 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "AbilitySystem/UChessAttributeSet.h"
+#include "AbilitySystem/ChessAttributeSet.h"
 
 #include "Net/UnrealNetwork.h"
+
+int32 UChessAttributeSet::GetAttributeId(const FGameplayAttribute& Attribute) const
+{
+	if (Attribute == GetMaxHealthAttribute())
+	{
+		return GetMaxHealthAttributeId();
+	}
+	if (Attribute == GetHealthAttribute())
+	{
+		return GetHealthAttributeId();
+	}
+	if (Attribute == GetAttackAttribute())
+	{
+		return GetAttackAttributeId();
+	}
+	if (Attribute == GetShieldAttribute())
+	{
+		return GetShieldAttributeId();
+	}
+	if (Attribute == GetSpeedAttribute())
+	{
+		return GetSpeedAttributeId();
+	}
+	return Super::GetAttributeId(Attribute);
+}
 
 void UChessAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
